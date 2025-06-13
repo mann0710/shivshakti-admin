@@ -1,0 +1,130 @@
+{
+  "menuItems": [
+    {
+      "id": "wd1",
+      "name": "Mocktail Bar",
+      "category": "Welcome Drink's",
+      "price": 150,
+      "quantity": 0
+    },
+    {
+      "id": "wd2",
+      "name": "Decorate Counter",
+      "category": "Welcome Drink's",
+      "price": 200,
+      "quantity": 0
+    },
+    {
+      "id": "s1",
+      "name": "Creem of Tomato with Bread Crumbs",
+      "category": "Soup",
+      "price": 120,
+      "quantity": 0
+    },
+    {
+      "id": "s2",
+      "name": "Hot & Sour",
+      "category": "Soup",
+      "price": 130,
+      "quantity": 0
+    },
+    {
+      "id": "ba1",
+      "name": "Lavas",
+      "category": "Breads & Accompaniments",
+      "price": 80,
+      "quantity": 0
+    },
+    {
+      "id": "si1",
+      "name": "Idli House",
+      "category": "South Indian",
+      "price": 100,
+      "quantity": 0
+    },
+    {
+      "id": "st1",
+      "name": "Finger (Cheese/Panner/Aalo)",
+      "category": "Starters",
+      "price": 180,
+      "quantity": 0
+    },
+    {
+      "id": "lc1",
+      "name": "Pizza",
+      "category": "Live Counter",
+      "price": 250,
+      "quantity": 0
+    },
+    {
+      "id": "sw1",
+      "name": "Sweet Rabadi",
+      "category": "Sweet",
+      "price": 120,
+      "quantity": 0
+    },
+    {
+      "id": "r1",
+      "name": "Puri",
+      "category": "Roti",
+      "price": 60,
+      "quantity": 0
+    },
+    {
+      "id": "gs1",
+      "name": "Desi Gujarati Subji",
+      "category": "Gujarati Subji",
+      "price": 150,
+      "quantity": 0
+    },
+    {
+      "id": "ps1",
+      "name": "Paneer Veg Subji",
+      "category": "Punjabi Subji",
+      "price": 200,
+      "quantity": 0
+    },
+    {
+      "id": "f1",
+      "name": "Mix Bhajiya",
+      "category": "Farsan",
+      "price": 120,
+      "quantity": 0
+    },
+    {
+      "id": "dr1",
+      "name": "Rajwadi Dal - Plain Rice",
+      "category": "Dal Rice",
+      "price": 180,
+      "quantity": 0
+    },
+    {
+      "id": "fp1",
+      "name": "Rosted Papad",
+      "category": "Fry Papad",
+      "price": 30,
+      "quantity": 0
+    },
+    {
+      "id": "mf1",
+      "name": "Live Pan Counter",
+      "category": "Mouth Fresher",
+      "price": 50,
+      "quantity": 0
+    },
+    {
+      "id": "ic1",
+      "name": "Ice Cream",
+      "category": "Ice Cream",
+      "price": 120,
+      "quantity": 0
+    },
+    {
+      "id": "fc1",
+      "name": "Pop Corn",
+      "category": "For Small Children's",
+      "price": 50,
+      "quantity": 0
+    }
+  ]
+} 
