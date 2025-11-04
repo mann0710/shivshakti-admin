@@ -204,6 +204,7 @@ const MenuCreation: React.FC = () => {
           <div className="custom-item-section">
             <button 
               className="toggle-custom-item"
+              style={{ backgroundColor: '#007bff' }}
               onClick={() => setShowCustomItemForm(!showCustomItemForm)}
             >
               {showCustomItemForm ? 'Cancel' : 'Add Custom Item'}
@@ -258,6 +259,7 @@ const MenuCreation: React.FC = () => {
                         type="text"
                         value={tempPrice}
                         onChange={handlePriceChange}
+                        onBlur={() => handlePriceSave(item.id)}
                         className="price-edit-input"
                         autoFocus
                       />
