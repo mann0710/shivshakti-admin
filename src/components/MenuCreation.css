@@ -346,3 +346,7 @@
   border-color: #007bff;
   box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
 } 
+
+.bg-blue-500 {
+  background-color: #007bff;
+}
