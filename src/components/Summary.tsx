@@ -39,6 +39,7 @@ const Summary: React.FC = () => {
   const [instructions, setInstructions] = useState('');
   const contentRef = useRef<HTMLDivElement>(null);
   const [loaded, setLoaded] = useState(false);
+  const [customTotal, setCustomTotal] = useState<number>(0);
 
   useEffect(() => {
     const storedCustomerDetails = localStorage.getItem('customerDetails');
@@ -48,13 +49,20 @@ const Summary: React.FC = () => {
       setCustomerDetails(JSON.parse(storedCustomerDetails));
     }
     if (storedMenu) {
-      setSelectedMenu(JSON.parse(storedMenu));
+      const menu = JSON.parse(storedMenu);
+      setSelectedMenu(menu);
       setLoaded(true);
+      setCustomTotal(menu.reduce((total: number, item: MenuItem) => total + (item.price * item.quantity), 0));
     }
   }, []);
 
   const calculateTotal = () => {
     return selectedMenu.reduce((total, item) => total + (item.price * item.quantity), 0);
+  };
+
+  const handleTotalChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = parseFloat(e.target.value) || 0;
+    setCustomTotal(value);
   };
 
   const handleGeneratePDF = async () => {
@@ -103,6 +111,27 @@ const Summary: React.FC = () => {
   return (
     <div className="summary">
       <h2>Order Summary</h2>
+      
+      {/* Editable Total Amount - Visible on page */}
+      <div style={{ marginBottom: '20px', padding: '15px', backgroundColor: '#f5f5f5', borderRadius: '8px' }}>
+        <label style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '16px', fontWeight: 'bold' }}>
+          <span>Total Amount:</span>
+          <input
+            type="number"
+            value={customTotal}
+            onChange={handleTotalChange}
+            style={{
+              border: '2px solid #007bff',
+              borderRadius: '4px',
+              padding: '8px 12px',
+              fontSize: '16px',
+              fontWeight: 'bold',
+              width: '150px',
+              textAlign: 'right'
+            }}
+          />
+        </label>
+      </div>
       
       <div className="summary-content" ref={contentRef}>
         <div className="pdf-header">
@@ -173,13 +202,13 @@ const Summary: React.FC = () => {
             <tfoot>
               <tr>
                 <td colSpan={3} className="total-label">Total Amount:</td>
-                <td className="total-amount">₹{calculateTotal()}</td>
+                <td className="total-amount">₹{customTotal.toFixed(2)}</td>
               </tr>
             </tfoot>
           </table>
           {/* PDF-only total price section */}
           <div className="pdf-total-only">
-            <h4>Total Amount: <span className="total-amount">₹{calculateTotal()}</span></h4>
+            <h4>Total Amount: <span className="total-amount">₹{customTotal.toFixed(2)}</span></h4>
           </div>
         </div>
 
