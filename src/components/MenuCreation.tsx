@@ -31,7 +31,7 @@ const MenuCreation: React.FC = () => {
   const navigate = useNavigate();
   const [expandedCategories, setExpandedCategories] = useState<Set<string>>(new Set());
   const [selectedItems, setSelectedItems] = useState<MenuItem[]>([]);
-  const [customItem, setCustomItem] = useState({ name: '', price: '' });
+  const [customItem, setCustomItem] = useState({ name: '', price: '', category: '' });
   const [searchQuery, setSearchQuery] = useState('');
   const [showCustomItemForm, setShowCustomItemForm] = useState(false);
   const [editingPriceId, setEditingPriceId] = useState<string | null>(null);
@@ -92,17 +92,17 @@ const MenuCreation: React.FC = () => {
   };
 
   const handleAddCustomItem = () => {
-    if (customItem.name && customItem.price) {
+    if (customItem.name && customItem.price && customItem.category) {
       const newItem: MenuItem = {
         id: `custom-${Date.now()}`,
         name: customItem.name,
-        category: categories[0],
+        category: customItem.category,
         price: parseFloat(customItem.price),
         quantity: 1,
         notes: ''
       };
       setSelectedItems([...selectedItems, newItem]);
-      setCustomItem({ name: '', price: '' });
+      setCustomItem({ name: '', price: '', category: '' });
       setShowCustomItemForm(false);
     }
   };
@@ -218,6 +218,18 @@ const MenuCreation: React.FC = () => {
                   value={customItem.name}
                   onChange={(e) => setCustomItem({ ...customItem, name: e.target.value })}
                 />
+                <select
+                  value={customItem.category}
+                  onChange={(e) => setCustomItem({ ...customItem, category: e.target.value })}
+                >
+                  <option value="">-- Select Category --</option>
+                  <option value="Custom">Custom</option>
+                  {categories.map(category => (
+                    <option key={category} value={category}>
+                      {category}
+                    </option>
+                  ))}
+                </select>
                 <input
                   type="number"
                   placeholder="Price"
