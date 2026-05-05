@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
 import { DateTime } from 'luxon';
-import { display } from 'html2canvas/dist/types/css/property-descriptors/display';
 
 interface CustomerDetails {
   name: string;
@@ -36,7 +35,7 @@ const Summary: React.FC = () => {
   const navigate = useNavigate();
   const [customerDetails, setCustomerDetails] = useState<CustomerDetails | null>(null);
   const [selectedMenu, setSelectedMenu] = useState<MenuItem[]>([]);
-  const [instructions, setInstructions] = useState('');
+  const [instructions] = useState('');
   const contentRef = useRef<HTMLDivElement>(null);
   const [loaded, setLoaded] = useState(false);
   const [customTotal, setCustomTotal] = useState<number>(0);
@@ -55,10 +54,6 @@ const Summary: React.FC = () => {
       setCustomTotal(menu.reduce((total: number, item: MenuItem) => total + (item.price * item.quantity), 0));
     }
   }, []);
-
-  const calculateTotal = () => {
-    return selectedMenu.reduce((total, item) => total + (item.price * item.quantity), 0);
-  };
 
   const handleTotalChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = parseFloat(e.target.value) || 0;

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { DateTime } from 'luxon';
 
 interface CustomerFormData {
   name: string;
@@ -10,14 +9,6 @@ interface CustomerFormData {
   time: string;
   venue: string;
   persons: string;
-}
-
-// Utility function to format date as dd-MMM-yyyy using luxon
-function formatDate(dateString: string) {
-  if (!dateString) return '';
-  const date = DateTime.fromISO(dateString);
-  if (!date.isValid) return dateString;
-  return date.toFormat('dd-MMM-yyyy');
 }
 
 const CustomerDetails: React.FC = () => {
